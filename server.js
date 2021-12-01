@@ -22,4 +22,11 @@ io.on("connection", newConnection)
 
 function newConnection(newSocket){
   console.log(newSocket.id)
+
+  newSocket.on("mouse",mouseMessage)
+
+  function mouseMessage(dataReceived){
+//send to all the clients
+    newSocket.broadcast.emit("mouseBroadcast",dataReceived)
+  }
 }

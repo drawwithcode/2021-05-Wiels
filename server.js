@@ -24,10 +24,16 @@ io.on("connection", newConnection)
 function newConnection(newSocket){
   console.log(newSocket.id)
 
-  newSocket.on("mouse",mouseMessage)
+  //newSocket.on("mouse",mouseMessage)
+  newSocket.on("facial_data",facialMessage)
 
-  function mouseMessage(dataReceived){
+  function facialMessage(dataReceived){
 //send to all the clients
-    newSocket.broadcast.emit("mouseBroadcast",dataReceived)
+    newSocket.broadcast.emit("facialBroadcast",dataReceived)
   }
+
+  //function mouseMessage(dataReceived){
+//send to all the clients
+    //newSocket.broadcast.emit("mouseBroadcast",dataReceived)
+  //}
 }

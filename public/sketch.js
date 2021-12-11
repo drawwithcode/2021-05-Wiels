@@ -42,9 +42,13 @@ function setup(){
 function draw(){
   //fill("blue")
   //circle(mouseX,mouseY,20)
-  //background(0)
+  if ((frameCount%10)==0) {
+    background(0)
+  }
+
   fill('red')
   features = tracker.getCurrentPosition()
+  console.log(features.length)
   if (features.length>0){
   for (var ii = 0; ii < features.length; ii++) {
     current_feature = features[ii]

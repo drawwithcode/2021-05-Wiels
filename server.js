@@ -3,8 +3,9 @@ console.log("Up and running");
 let express = require("express");
 //activate express
 let app = express();
-//define the port you want to use
-let port = 3000;
+//define the port you want to use (PORT is wat Heroku maakt)
+//Now it can work both online and locally
+let port = process.env.PORT || 3000;
 //create variable and tell express to listen there
 //so localhost is simulated
 let server = app.listen(port)
